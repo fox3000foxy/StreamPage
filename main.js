@@ -46,3 +46,26 @@ function dumpOptionsInfo() {
   console.info("Track constraints:");
   console.info(JSON.stringify(videoTrack.getConstraints(), null, 2));
 }
+
+startCapture()
+
+var video = document.createElement('video');
+video.setAttribute('playsinline', '');
+video.setAttribute('autoplay', '');
+video.setAttribute('muted', '');
+video.style.width = '200px';
+video.style.height = '200px';
+
+var facingMode = "user"; // Can be 'user' or 'environment' to access back or front camera (NEAT!)
+var constraints = {
+  audio: false,
+  video: {
+   facingMode: facingMode
+  }
+};
+
+navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
+  video.srcObject = stream;
+});
+
+document.body.appendChild(video)
