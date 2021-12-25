@@ -4,14 +4,40 @@
 	z-index: -1;
 	left:0;
 	top:0;
-	width:100%;
+	width:80%;
 	height:100%;
 	border:none;
 }
+
+#streamChat {
+  position:absolute;
+  left:80%;
+  top:0;
+  width:20%;
+  height:100%;
+}
+
+#userCamera {
+  position:absolute;
+	width:20%;
+  /*border: '1px solid #6699cc'*/
+}
+
+body {
+  overflow: hidden;
+  background: #212121
+}
 </style>
-<video id="video" autoplay></video>
-<video id="userCamera" autoplay playsinline muted poster="camera.png"></video>
 <body>
+  <title>
+    Web Stream Page
+  </title>
+  <video id="video" autoplay poster="screen.png"></video>
+  <div id="userCameraheader">
+    <video id="userCamera" autoplay playsinline muted poster="camera.png" draggable></video>
+  </div>
+  <iframe src='https://streamchat.fox3000.repl.co/' frameborder=0 id="streamChat"></iframe>
+  <button style="position:absolute;right:17.5px;top:10px;border:none;background:none" onclick="askChannel()"><img src="pencil.png" width="32"></button>
   <script src="drag.js"></script>
   <script src="main.js"></script>
 </body>
